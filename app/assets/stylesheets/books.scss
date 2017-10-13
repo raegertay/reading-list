@@ -1,3 +1,30 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-image: url('background_tile');
+  background-size: cover;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+h1.section-title {
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+}
+
+p, a, td, label, input {
+  font-family: 'Handlee', cursive;
+}
+
+th {
+  font-weight: 900;
+  font-family: 'Delius Unicase', cursive;
+}
+
+.help-block {
+  color: red;
+}

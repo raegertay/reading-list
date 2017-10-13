@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'books#index'
+  root 'pages#landing'
   resources :books
 
 end

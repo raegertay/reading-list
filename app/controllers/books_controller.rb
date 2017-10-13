@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all
+    # byebug
+    @term = search_params
+    @books = Book.search(@term)
   end
 
   def show
@@ -18,14 +20,22 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create(book_params.merge(hasRead: params[:hasRead]))
-    redirect_to books_path
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to books_path
+    else
+      render :new
+    end
   end
 
   def update
+    # byebug
     @book = Book.find(params[:id])
-    @book.update(book_params.merge(hasRead: params[:hasRead]))
-    redirect_to books_path
+    if @book.update(book_params)
+      redirect_to books_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -37,7 +47,11 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:name, :author)
+    params.require(:book).permit(:name, :author, :hasRead)
+  end
+
+  def search_params
+    params[:search] ? params[:search][:term] : nil
   end
 
 end

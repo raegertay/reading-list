@@ -1,0 +1,37 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.quotes {
+  background-image: url('landing_page_bg.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.quotes .blockquote p {
+  white-space: pre-wrap;
+  font-family: 'Handlee', cursive;
+  font-size: 130%;
+  color: black;
+}
+
+.quotes .blockquote footer {
+  font-family: 'Berkshire Swash', cursive;
+  color: lightgrey;
+}
+
+.quotes a {
+  text-decoration-line: none;
+  font-family: 'Handlee', cursive;
+  font-weight: bold;
+  color: #7ec0ee;
+}
+
+.quotes a:hover {
+  color: blue;
+}

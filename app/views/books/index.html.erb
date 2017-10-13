@@ -1,18 +1,40 @@
-<h1>Reading List</h1>
+<div class='container'>
+  <div class='jumbotron'>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Author</th>
-      <th>Already read?</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <%= link_to 'Home', root_path %>
 
-  <tbody>
-    <% @books.each do |book| %>
+  </br>
+
+  <h1 class='section-title text-center'>My Reading List</h1>
+
+  <br />
+
+  <%= simple_form_for :search, url: books_path, method: :get do |f| %>
+  <%= f.input :term, label: false, placeholder: "Search books or authors", input_html: {value: @term} %>
+  <%= f.button :submit, "Search", name: nil %>
+  <%= link_to 'Full list', books_path %>
+  <% end %>
+
+  <br />
+  <%= link_to 'New Book', new_book_path %>
+  <br />
+
+  <table class='table table-hover'>
+    <thead>
       <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Read?</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% count = 0 %>
+      <% @books.each do |book| %>
+      <tr>
+        <th scope="row"><%= count += 1 %></th>
         <td><%= book.name %></td>
         <td><%= book.author %></td>
         <td><%= book.hasRead %></td>
@@ -20,10 +42,9 @@
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book_path(book.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
-
-<%= link_to 'New Book', new_book_path %>
+</div>
+</div>

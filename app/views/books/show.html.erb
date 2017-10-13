@@ -1,5 +1,16 @@
-<h1><%= @book.name %></h1>
-<p>Author: <%= @book.author %></p>
-<p>Already read? <%= @book.hasRead %></p>
+<div class='container'>
+  <div class='jumbotron'>
 
-<%= link_to 'Back', books_path %>
+    <div class='text-center'>
+      <h1 class='section-title'><%= @book.name %></h1>
+      <br />
+      <p>Author: <%= @book.author %></p>
+      <p><%= @book.hasRead ? 'Already read' : 'Not yet read' %></p>
+    </div>
+
+    <br />
+
+    <%= link_to 'Back', books_path %>
+
+  </div>
+</div>
