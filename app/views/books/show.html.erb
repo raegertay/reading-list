@@ -1,16 +1,15 @@
 <div class='container'>
   <div class='jumbotron'>
 
+    <%= link_to image_tag('icons/left_arrow', size: '25'), books_path %>
+
     <div class='text-center'>
       <h1 class='section-title'><%= @book.name %></h1>
       <br />
       <p>Author: <%= @book.author %></p>
-      <p><%= @book.hasRead ? 'Already read' : 'Not yet read' %></p>
+      <p><%= @book.has_read ? 'Already read' : 'Not yet read' %></p>
+      <p>Last updated: <%= @book.updated_at %></p>
     </div>
-
-    <br />
-
-    <%= link_to 'Back', books_path %>
 
   </div>
 </div>

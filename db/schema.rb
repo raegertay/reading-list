@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171011143449) do
   create_table "books", force: :cascade do |t|
     t.string "name", null: false
     t.string "author", null: false
-    t.boolean "hasRead", default: false, null: false
+    t.boolean "has_read", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

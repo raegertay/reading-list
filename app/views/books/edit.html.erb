@@ -1,21 +1,16 @@
 <div class='container'>
   <div class='jumbotron'>
 
+    <%= link_to image_tag('icons/left_arrow', size: '25'), books_path %>
+
     <h1 class='section-title text-center'>Edit Book</h1>
 
     <%= simple_form_for @book, url: book_path, method: :put do |f| %>
-
     <%= f.input :name, label: 'Name', placeholder: "Book's name", error: 'Name is mandatory' %>
     <%= f.input :author, label: 'Author', placeholder: "Author's name", error: 'Author is mandatory' %>
-    <%= f.input :hasRead, label: 'Read?' %>
-
+    <%= f.input :has_read, label: 'Read?' %>
     <%= f.button :submit, "Save" %>
-
     <% end %>
-
-    <br />
-
-    <%= link_to 'Back', books_path %>
 
   </div>
 </div>
