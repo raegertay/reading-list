@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
 
-  validates :name, :author, presence: true
+  validates :name, :author, presence: { message: "%{attribute} is mandatory" }
   validate :same_book_already_exist, on: :create
 
   # Return matched name or author based on (search) term

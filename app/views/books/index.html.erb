@@ -18,7 +18,7 @@
   <br />
   <%= link_to image_tag('icons/new_book', size: '40'), new_book_path %>
   <p class='flash-notice text-center'><%= flash[:notice] %></p>
-  <p class='flash-error text-center'><%= flash[:error] if @books.empty? %></p>
+  <p class='flash-alert text-center'><%= flash[:alert] if @books.empty? %></p>
   <br />
 
   <table class='table table-hover'>

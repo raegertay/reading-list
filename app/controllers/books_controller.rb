@@ -11,7 +11,7 @@ class BooksController < ApplicationController
              else
                Book.all.order(:name, :author)
              end
-    flash[:error] = 'Book not found'
+    flash[:alert] = 'Book not found'
   end
 
   def show
@@ -29,8 +29,8 @@ class BooksController < ApplicationController
       # byebug
       redirect_to books_path
     else
-      # byebug
       render :new
+      # byebug
     end
   end
 
