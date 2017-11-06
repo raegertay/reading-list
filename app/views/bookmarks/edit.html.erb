@@ -1,0 +1,15 @@
+<div class='container'>
+  <div class='jumbotron'>
+
+    <%= link_to image_tag('icons/left_arrow', size: '25'), book_bookmarks_path(@book) %>
+
+    <h1 class='section-title text-center'>Edit Book</h1>
+
+    <%= simple_form_for @bookmark, url: bookmark_path, method: :put do |f| %>
+    <%= f.input :page_number, label: 'Page Number', placeholder: "E.g 38"%>
+    <%= f.input :description, label: 'Description', placeholder: "Description" %>
+    <%= f.button :submit, "Save" %>
+    <% end %>
+
+  </div>
+</div>

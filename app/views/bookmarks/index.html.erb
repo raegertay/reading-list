@@ -1,0 +1,47 @@
+<div class='container'>
+  <div class='jumbotron'>
+
+    <%= link_to image_tag('icons/left_arrow', size: '25'), request.referer.present? ? request.referer : default_path %>
+
+  </br>
+
+  <div class='text-center'>
+    <h1 class='section-title text-center'>My Bookmarks</h1>
+    <p>Title: <%= @book.name %></p>
+    <p>Author: <%= @book.author %></p>
+  </div>
+
+  <%= link_to image_tag('icons/new_book', size: '40'), new_book_bookmark_path(@book) %>
+
+  <br />
+  <p class='flash-notice text-center'><%= flash[:notice] %></p>
+  <p class='flash-alert text-center'><%= flash[:alert] %></p>
+  <br />
+
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Page Number</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% count = 0 %>
+      <% @bookmarks.each.with_index(1) do |bookmark, index| %>
+      <tr>
+        <th scope="row"><%= index %></th>
+        <td><%= bookmark.page_number %></td>
+        <td><%= bookmark.description %></td>
+        <td><%= link_to image_tag('icons/show', size: '20'), bookmark_path(bookmark) %></td>
+        <td><%= link_to image_tag('icons/edit', size: '20'), edit_bookmark_path(bookmark) %></td>
+        <td><%= link_to image_tag('icons/delete', size: '20'), bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+</div>

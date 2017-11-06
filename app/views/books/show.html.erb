@@ -3,6 +3,8 @@
 
     <%= link_to image_tag('icons/left_arrow', size: '25'), books_path %>
 
+    <p class='flash-notice text-center'><%= flash[:notice] %></p>
+
     <div class='text-center'>
       <h1 class='section-title'><%= @book.name %></h1>
       <br />
@@ -10,6 +12,10 @@
       <p><%= @book.has_read ? 'Already read' : 'Not yet read' %></p>
       <p>Last updated: <%= @book.updated_at %></p>
     </div>
+
+    <br />
+
+    <%= link_to 'View all bookmarks', book_bookmarks_path(@book) %>
 
   </div>
 </div>

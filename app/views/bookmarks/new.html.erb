@@ -1,0 +1,22 @@
+<div class='container'>
+  <div class='jumbotron'>
+
+    <%= link_to image_tag('icons/left_arrow', size: '25'), book_bookmarks_path(@book) %>
+
+    <h1 class='section-title text-center'>New Bookmark</h1>
+
+    <ul class='help-block'>
+      <% @bookmark.errors[:base].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+
+    <%= simple_form_for @bookmark, url: book_bookmarks_path(@book), method: :post, html: {class: 'form-horizontal'} do |f| %>
+    <%= f.input :page_number, label: 'Page Number', placeholder: "E.g 38"%>
+    <%= f.input :description, label: 'Description', placeholder: "Description" %>
+    <%= f.button :submit, "Create" %>
+
+    <% end %>
+
+  </div>
+</div>

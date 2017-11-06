@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'pages#landing'
-  resources :books
+  resources :books do
+    resources :bookmarks, shallow: true
+  end
 
 end
