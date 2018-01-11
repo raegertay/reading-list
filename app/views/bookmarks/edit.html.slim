@@ -1,0 +1,12 @@
+.container
+  .jumbotron
+
+    = link_to book_bookmarks_path(@book) do
+      = image_tag 'icons/left_arrow', size: '25'
+
+    h1.section-title.text-center Edit Book
+
+    = simple_form_for @bookmark, url: bookmark_path, method: :put do |f|
+      = f.input :page_number, label: 'Page Number', placeholder: "E.g 38"
+      = f.input :description, label: 'Description', placeholder: "Description"
+      = f.button :submit, "Save"
